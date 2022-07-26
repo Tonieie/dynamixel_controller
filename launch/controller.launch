@@ -1,0 +1,7 @@
+<launch>
+    <node name="dynamixel_controller_node" pkg="dynamixel_controller" type="dynamixel_controller_node" output="screen">
+        <param name="device_name" type="str" value="/dev/ttyUSB0"/>
+        <param name="baudrate" type="int" value="57600"/>
+    </node>
+
+</launch>
