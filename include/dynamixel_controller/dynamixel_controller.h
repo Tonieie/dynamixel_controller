@@ -40,8 +40,22 @@ class DynamixelController
 		boost::shared_ptr<dynamixel::GroupSyncRead> armSyncRead;
 		boost::shared_ptr<dynamixel::GroupSyncRead> gripperSyncRead;
 
-		void initDynamixel();
+		double cmd[7];
+		double pos[7];
+		double vel[7];
+		double eff[7];
 
+		union Int32ToByte
+		{
+			int32_t asInt;
+			uint8_t asByte[4];
+		}cmd_to_send;
+
+		void initDynamixel();
+		void writeArm();
+		void writeGripper();
+		void readArm();
+		void readGripper();
 };
 
 #endif
